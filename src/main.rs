@@ -5,12 +5,12 @@ pub mod structs;
 use services::creates;
 use structopt::StructOpt;
 use structs::cli::{Cli, Command};
-use data_models::conn_db::{ConnDB};
+use data_models::{ConnDB};
 use sqlite::{Connection};
 
 fn main() {
     let args: Cli = Cli::from_args();
-    let conn_db = ConnDB::init();
+    let conn_db: Connection = ConnDB::init();
     match &args.model.as_str() {
         &"serve" => {
             match args.cmd {
