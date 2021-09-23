@@ -1,1 +1,3 @@
-pub mod creates;
+mod cache;
+
+pub use cache::Cache;
