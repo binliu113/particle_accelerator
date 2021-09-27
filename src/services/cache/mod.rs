@@ -1,13 +1,19 @@
 use sqlite::Connection;
 
-pub mod creates;
+mod creates;
 
-pub struct Cache {}
+pub struct Cache {
+    conn: Connection,
+}
 
 impl Cache {
     pub fn new(_conn: Connection) -> Cache {
-        Cache {}
+        Cache {
+            conn: _conn
+        }
     }
 
-    pub fn start() {}
+    pub fn insert(&self,mode:&str) {
+        println!("{}",mode);
+    }
 }

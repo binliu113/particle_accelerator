@@ -1,3 +1,1 @@
-mod cache;
-
-pub use cache::Cache;
+pub mod cache;

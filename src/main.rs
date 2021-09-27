@@ -7,31 +7,19 @@ use structopt::StructOpt;
 use structs::cli::{Cli, Command};
 use data_models::{ConnDB};
 use sqlite::{Connection};
+use services::cache::{Cache};
 
 fn main() {
     let args: Cli = Cli::from_args();
     let conn_db: Connection = ConnDB::init();
-    // let _servers = Services
-    services::Cache::new(conn_db);
-    match &args.model.as_str() {
-        &"serve" => {
-            match args.cmd {
-                Command::Start { .. } => {}
-                Command::Stop { .. } => {}
-                Command::List { .. } => {}
-                Command::Create { .. } => {}
-                Command::Remove { .. } => {}
-            };
+    let cache = Cache::new(conn_db);
+    match args.cmd {
+        Command::Start { .. } => {}
+        Command::Stop { .. } => {}
+        Command::List { .. } => {}
+        Command::Create { .. } => {
+            cache.insert(args.model.as_str());
         }
-        &"client" => {
-            match args.cmd {
-                Command::Start { .. } => {}
-                Command::Stop { .. } => {}
-                Command::List { .. } => {}
-                Command::Create { .. } => {}
-                Command::Remove { .. } => {}
-            };
-        }
-        _ => {}
+        Command::Remove { .. } => {}
     };
 }

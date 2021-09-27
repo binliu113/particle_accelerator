@@ -14,7 +14,7 @@ impl CreateClient {
             conn: _conn
         }
     }
-    pub fn run() {
+    pub fn run(&self) {
         println!("{}", "cli 创建实例！！！");
     }
 }
@@ -26,7 +26,7 @@ impl CreateServe {
         }
     }
 
-    pub fn run() {
+    pub fn run(&self) {
         println!("{}", "ser 创建实例！！！")
     }
 }
