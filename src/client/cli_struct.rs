@@ -2,10 +2,9 @@ use structopt;
 use structopt::StructOpt;
 
 #[derive(StructOpt)]
-#[structopt(name = "PAC", version = "0.0.1")]
+#[structopt(name = "pac", version = "0.0.1")]
 pub struct Cli {
     #[structopt(subcommand)]
-    /// cmd
     pub cmd: Command,
 }
 
